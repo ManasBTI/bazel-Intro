@@ -1,0 +1,11 @@
+module(
+    name = "bazel_calculator_fresh",
+)
+
+# Optional: keep rules_cc only if you explicitly load it in BUILD files.
+# On Bazel 9, prefer a recent version:
+bazel_dep(name = "rules_cc", version = "0.2.16")
+
+# Correct BCR module and version for GoogleTest:
+# Use a version that actually exists in the registry (note the .bcr.* suffix).
+bazel_dep(name = "googletest", version = "1.17.0.bcr.2")
