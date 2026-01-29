@@ -1,5 +1,9 @@
+# Load http_archive to fetch external repos.
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+# Bring in GoogleTest.
 http_archive(
-    name = "rules_cc",
-    urls = ["https://github.com/bazelbuild/rules_cc/archive/refs/tags/0.0.10.tar.gz"],
-    strip_prefix = "rules_cc-0.0.10",
+    name = "com_google_googletest",
+    urls = ["https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip"],
+    strip_prefix = "googletest-1.14.0",
 )
