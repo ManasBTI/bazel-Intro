@@ -1,0 +1,5 @@
+# GCC Static Analyzer Configuration
+build:analyze --cxxopt=-fanalyzer
+build:analyze --cxxopt=-Wall
+build:analyze --cxxopt=-Wextra
+build:analyze --cxxopt=-pedantic
