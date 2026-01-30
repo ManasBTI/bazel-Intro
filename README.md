@@ -190,6 +190,36 @@ Then add a `cc_test` entry in `BUILD` and run `bazel test //:calculator_test`.
 
 ---
 
+## Code coverage ✅
+
+This repository supports generating LCOV coverage reports for C++ tests using Bazel and `lcov`/`genhtml`.
+
+- Install tools:
+  - Debian/Ubuntu: `sudo apt install lcov`
+  - macOS (Homebrew): `brew install lcov`
+
+- Generate an LCOV report:
+
+```bash
+# run coverage for the calculator test and produce an lcov report
+bazel coverage //:calculator_test --combined_report=lcov
+```
+
+- Generate HTML from the LCOV report using `genhtml`:
+
+```bash
+# find the generated LCOV report and create HTML output
+# (or use the helper script below)
+genhtml -o coverage_html path/to/_coverage_report.dat
+# open coverage_html/index.html
+```
+
+- Helper script:
+  - `scripts/coverage.sh` will run coverage and create `coverage_html/` automatically. Make it executable: `chmod +x scripts/coverage.sh`
+  - Usage: `./scripts/coverage.sh //:calculator_test` (target defaults to `//:calculator_test`).
+
+---
+
 **Next steps I recommend**
 
 - Open `BUILD`, `WORKSPACE`, `calculator.cpp`, and `calculator_test.cpp` to follow along.
